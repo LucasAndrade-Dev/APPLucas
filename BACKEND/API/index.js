@@ -20,6 +20,9 @@ app.listen(PORT, () => {
 var userArgs = process.argv.slice(2);
 var mongoURL = userArgs[0];
 //Configurando a conexao com o Banco de Dados
+// 1. Substitua as linhas antigas por esta lógica:
+const mongoURL = process.env.MONGODB_URI || "mongodb+srv://Lucas249038:Lucas231104@cluster0.tbcfcg7.mongodb.net/tarefasDB?retryWrites=true&w=majority&appName=Cluster0";
+// 2. O mongoose agora usa a variável que criamos acima
 var mongoose = require('mongoose');
 mongoose.connect(mongoURL);
 mongoose.Promise = global.Promise;
